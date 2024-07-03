@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Rentcar {% endblock %} | MeinRental</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body class="bg-gray-900 text-white">
+    <header class="bg-gray-800 p-4">
+        <nav class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold"><a href="{% url 'car_list' %}">ALOOOMEINRENTAL</a></div>
+            <div class="hidden md:flex space-x-6">
+                <a href="{% url 'car_list' %}" class="hover:text-gray-400">Home</a>
+                <a href="{% url 'about' %}" class="hover:text-gray-400">About</a>
+                <a href="{% url 'contact' %}" class="hover:text-gray-400">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="navbar-toggle" class="focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+        <div id="navbar-menu" class="hidden md:hidden">
+            <nav class="container mx-auto flex flex-col space-y-4 mt-4">
+                <a href="{% url 'car_list' %}" class="hover:text-gray-400">Home</a>
+                <a href="{% url 'about' %}" class="hover:text-gray-400">About</a>
+                <a href="{% url 'contact' %}" class="hover:text-gray-400">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto py-8">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="bg-gray-800 p-4 text-center mt-auto">
+        <div class="container mx-auto">
+            <div class="flex justify-center space-x-4 mb-4">
+                <a href="https://www.facebook.com/azembassycz/" class="hover:text-gray-400"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-gray-400"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/meinsoftx/" class="hover:text-gray-400"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/astralmein/" class="hover:text-gray-400"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p class="text-sm">&copy; 2024 ALOOOMEINRENTAL. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        document.getElementById('navbar-toggle').addEventListener('click', function () {
+            var menu = document.getElementById('navbar-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

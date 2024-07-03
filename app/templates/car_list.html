@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mx-auto py-8">
+    <div class="bg-gray-900 rounded-lg shadow-lg p-8">
+        <h2 class="text-4xl font-bold text-center mb-8">Available Cars</h2>
+        <div class="flex flex-wrap justify-center mt-12 px-4">
+            {% for car in cars %}
+            <div class="bg-gray-800 rounded-lg shadow-lg m-4 p-6 w-72 text-center transform hover:scale-105 transition-transform duration-300" style="min-height: 350px;">
+                <img src="{{ car.image_url }}" alt="{{ car.name }}" class="w-full h-48 object-cover rounded-lg">
+                <h3 class="text-2xl font-semibold mt-4 text-white truncate">{{ car.name }}</h3>
+                <div class="flex justify-center space-x-4 mt-4 text-gray-400">
+                    <span><i class="fas fa-users"></i> {{ car.seats }} seats</span>
+                    <span><i class="fas fa-gas-pump"></i> {{ car.benz }}</span>
+                </div>
+                <a href="{% url 'car_detail' car.slug %}" class="block mt-4 bg-green-500 text-white py-2 rounded hover:bg-green-400 transition-colors duration-300">View Details</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -17,7 +17,7 @@ Run app with this command
 
 ```python manage.py runserver```
 
-go to the admin panel and add the products you want to the photo section webp format does not work!
+go to the admin panel and add the products you want to the photo section (webp format does not work!)
 ```http://127.0.0.1:8000/admin/```
 
 <img src="https://github.com/meinsoft/Django-Rentacar-App/assets/110315047/fddc59e4-4dbb-4977-ba99-26532c3afd6f" alt="Proje Ekran Görüntüsü" width="700"/>
